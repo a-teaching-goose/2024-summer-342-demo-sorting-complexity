@@ -1,8 +1,6 @@
 #include "util.hpp"
 
-void print_vector(const std::string &name, const std::vector<int> &vec);
-
-void test_bubble_sort() {
+void good_test_bubble_sort() {
 
     int size = 5;
     int end_size = 50;
@@ -33,7 +31,13 @@ void test_bubble_sort() {
          */
         bool failed = false;
         for (int i = 0; i < size; i++) {
-            CHECK_AND_PRINT_FAILURE(expect, actual, size, failed);
+            if (expect[i] != actual[i]) {
+                std::cout << "FAILED at size " << std::to_string(size) << std::endl;
+                print_vector("expect: ", expect);
+                print_vector("actual: ", actual);
+                failed = true;
+                break;
+            }
         }
         if (failed) {
             break;

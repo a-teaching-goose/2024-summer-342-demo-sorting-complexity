@@ -2,6 +2,6 @@
 #include "test.hpp"
 
 int main() {
-    test_bubble_sort();
+    good_test_bubble_sort();
 }
 
