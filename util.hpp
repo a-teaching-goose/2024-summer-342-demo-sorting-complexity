@@ -19,3 +19,12 @@ void print_vector(const std::string &name, const std::vector<int> &vec) {
     }
     std::cout << " ]" << std::endl;
 }
+
+#define CHECK_FAILURE(failed, expect, actual) \
+    if (failed) { \
+        print_vector("expect: ", expect); \
+        print_vector("actual: ", actual); \
+        break; \
+    } else { \
+        std::cout << "Size " << std::to_string(size) << " PASSED." << std::endl; \
+    }
